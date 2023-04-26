@@ -1,6 +1,7 @@
 // expose.js
 
 window.addEventListener('DOMContentLoaded', init);
+var jsConfetti = new JSConfetti()
 
 function init() {
   bind_volume();
@@ -30,6 +31,11 @@ function bind_play_btn() {
   let play_btn = document.querySelector("button");
   play_btn.addEventListener("click", e => {
     let audio_object = document.getElementsByClassName("hidden")[0];
+    if(document.getElementById("horn-select").value == "party-horn") {
+      jsConfetti.addConfetti({
+        confettiRadius: 6,
+      })
+    }
     audio_object.play();
   });
 }

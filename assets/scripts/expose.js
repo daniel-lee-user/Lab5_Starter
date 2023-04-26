@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
   bind_volume();
+  bind_play_btn();
 }
 
 function bind_volume() {
@@ -19,8 +20,15 @@ function bind_volume() {
     }else{
       volume_icon.src = "assets/icons/volume-level-3.svg";
     }
-    let volume_level = document.getElementsByClassName("hidden");
-    volume_level.volume = volume_slider.value;
-    console.log(volume_level.volume);
+    let audio_object = document.getElementsByClassName("hidden");
+    audio_object.volume = volume_slider.value;
+  });
+}
+
+function bind_play_btn() {
+  let play_btn = document.querySelector("button");
+  play_btn.addEventListener("click", e => {
+    let audio_object = document.getElementsByClassName("hidden");
+    console.log(audio_object);
   });
 }

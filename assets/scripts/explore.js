@@ -1,9 +1,9 @@
 // explore.js
 
 window.addEventListener('DOMContentLoaded', init);
-var synth = window.speechSynthesis;
 
 function init() {
+  load_voices();
   pressToTalk();
 }
 
@@ -18,5 +18,19 @@ function pressToTalk() {
     input.addEventListener("end", (event) => {
       face.src = "assets/images/smiling.png";
     });
+  });
+}
+
+
+function load_voices() {
+  window.speechSynthesis.addEventListener("voiceschanged", e => {
+    const voices = speechSynthesis.getVoices();
+    const drop_down_list = document.getElementById("voice-select");
+    for (let i = 0; i < voices.length; i++) {
+      let option = document.createElement("option");
+      option.value = voices[i];
+      option.textContent = voices[i];
+      drop_down_list.add(option);
+    }
   });
 }

@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
   bind_volume();
   bind_play_btn();
+  selectHorn();
 }
 
 function bind_volume() {
@@ -30,5 +31,13 @@ function bind_play_btn() {
   play_btn.addEventListener("click", e => {
     let audio_object = document.getElementsByClassName("hidden");
     console.log(audio_object);
+  });
+}
+
+function selectHorn() {
+  const horn = document.getElementById("horn-select");
+  horn.addEventListener("change", (event) => {
+    document.getElementsByTagName("img")[0].src = "assets/images/" + event.target.value + ".svg";
+    document.getElementsByClassName("hidden")[0].src = "assets/audio/" + event.target.value + ".mp3";
   });
 }

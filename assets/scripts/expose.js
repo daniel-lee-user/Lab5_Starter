@@ -19,5 +19,8 @@ function bind_volume() {
     }else{
       volume_icon.src = "assets/icons/volume-level-3.svg";
     }
+    let volume_level = document.getElementsByClassName("hidden");
+    volume_level.volume = volume_slider.value;
+    console.log(volume_level.volume);
   });
 }

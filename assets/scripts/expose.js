@@ -30,7 +30,7 @@ function bind_play_btn() {
   let play_btn = document.querySelector("button");
   play_btn.addEventListener("click", e => {
     let audio_object = document.getElementsByClassName("hidden");
-    console.log(audio_object);
+    audio_object.play();
   });
 }
 

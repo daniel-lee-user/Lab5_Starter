@@ -21,15 +21,15 @@ function bind_volume() {
     }else{
       volume_icon.src = "assets/icons/volume-level-3.svg";
     }
-    let audio_object = document.getElementsByClassName("hidden");
-    audio_object.volume = volume_slider.value;
+    let audio_object = document.getElementsByClassName("hidden")[0];
+    audio_object.volume = volume_slider.value/100;
   });
 }
 
 function bind_play_btn() {
   let play_btn = document.querySelector("button");
   play_btn.addEventListener("click", e => {
-    let audio_object = document.getElementsByClassName("hidden");
+    let audio_object = document.getElementsByClassName("hidden")[0];
     audio_object.play();
   });
 }
